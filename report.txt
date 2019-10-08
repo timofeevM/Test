@@ -1,3 +1,14 @@
 0. —оздаю репозиторий и файл report.txt
 1. ”станавливаю и настраиваю окружение(Selenium server по ссылке в статье скачать нельз€, написал в поисковик скачать Selenium server, скачал.
 Node.js, npm и Java были)
+2. ¬ыполн€ю скрипт(ƒл€ того чтобы скрип прошел нужно
+	*»зменить строчку "client.findElement({ css: '.b-form-button__input' }).click();" на "client.findElement({ css: '.suggest2-form__button' }).click();" из за того что в яндексе у кнопки помен€лс€ класс и обернуть в setTimeout() дл€ того чтобы действи€ не опережали друг друга
+	*»зменить 
+client.getTitle().then(function(title) {
+        assert.ok(title.indexOf('test Ч яндекс: нашлось') > -1, 'Ќичего не нашлось :(');
+}); на 
+client.getTitle().then(function(title) {
+	str = "test Ч яндекс: ничего не найдено";
+	assert.ok(title.length > str.length, 'Ќичего не нашлось :(');
+}); так как "title" и "test Ч яндекс: нашлось не сравниваютс€" и обернуть в setTimeout() дл€ того чтобы действи€ не опережали друг друга
+	*ƒокумент test.js прикладываю)
